@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Desplegar app en Docker en la VM') {
       steps {
-        sshagent(['mi-clave-ssh']) {
+        sshagent(['debian']) {
           sh '''
             ssh -o StrictHostKeyChecking=no debian@localhost "
               cd proyectoy &&
