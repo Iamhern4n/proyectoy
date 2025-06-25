@@ -6,7 +6,7 @@ pipeline {
       steps {
         sshagent(['debian']) {
           sh '''
-            ssh -o StrictHostKeyChecking=no debian@localhost "
+            ssh -o StrictHostKeyChecking=no debian@20.63.73.106 "
               cd proyectoy &&
               git pull &&
               docker-compose down &&
