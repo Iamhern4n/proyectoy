@@ -2,15 +2,9 @@ pipeline {
   agent any
 
   stages {
-    stage('Clonar repositorio') {
-      steps {
-        git 'https://github.com/Iamhern4n/proyectoy.git'
-      }
-    }
-
     stage('Desplegar app en Docker en la VM') {
       steps {
-        sshagent(['debian']) {
+        sshagent(['mi-clave-ssh']) {
           sh '''
             ssh -o StrictHostKeyChecking=no debian@localhost "
               cd proyectoy &&
@@ -24,4 +18,5 @@ pipeline {
     }
   }
 }
+
 
